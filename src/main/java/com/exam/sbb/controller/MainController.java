@@ -1,10 +1,7 @@
 package com.exam.sbb.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -35,5 +32,22 @@ public class MainController {
     public int showIncrease(){
         increaseNo++;
         return increaseNo;
+    }
+
+    @GetMapping("/mbti/{name}")
+    @ResponseBody
+    public String showMbti(@PathVariable String name){
+        String rs = "";
+        switch (name){
+            case "최승민": rs="INTP";
+            break;
+            case "설주수": rs="ISTP";
+            break;
+            case "권정민": rs="ESFP";
+            break;
+            default: rs="INFP";
+            break;
+        }
+        return rs;
     }
 }
