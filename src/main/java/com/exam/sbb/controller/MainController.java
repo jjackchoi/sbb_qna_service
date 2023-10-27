@@ -36,6 +36,7 @@ public class MainController {
 
     @GetMapping("/mbti/{name}")
     @ResponseBody
+    //get방식일때 ?하고 사용하지 않고 uri뒷부분에 변수를 넣어서 사용가능
     public String showMbti(@PathVariable String name){
         String rs = "";
         switch (name){
